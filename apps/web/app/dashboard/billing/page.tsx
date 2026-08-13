@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PageHeader, Card, Button, StatCard } from '@totalaudiopromo/ui/app'
+import { PageHeader, Card, Button, StatCard, SectionLabel } from '@totalaudiopromo/ui/app'
 import { CreditCard, Check, ShieldCheck, Cpu, Terminal, ExternalLink } from 'lucide-react'
 
 export default function BillingPage() {
@@ -9,10 +9,10 @@ export default function BillingPage() {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto">
-      <PageHeader
-        badge="SUBSCRIPTION & LOCAL CLI TIERS"
+      <SectionLabel>SUBSCRIPTION & LOCAL CLI TIERS</SectionLabel>
+<PageHeader
         title="Billing & Plan Management"
-        subtitle="Understand Podflow's open-source local CLI mode vs hosted cloud PR workspace tiers."
+        description="Understand Podflow's open-source local CLI mode vs hosted cloud PR workspace tiers."
       />
 
       {/* Active Plan Summary */}

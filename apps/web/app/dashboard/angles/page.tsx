@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PageHeader, Card, StatCard, Button } from '@totalaudiopromo/ui/app'
+import { PageHeader, Card, StatCard, Button, SectionLabel } from '@totalaudiopromo/ui/app'
 import { Sparkles, Search, Copy, CheckCircle2, Lightbulb, Tag } from 'lucide-react'
 
 // Real extracted ideas from Podflow digest pipeline
@@ -62,30 +62,33 @@ export default function AnglesPage() {
 
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
-      <PageHeader
-        badge="AI EXTRACTOR"
+      <SectionLabel>AI EXTRACTOR</SectionLabel>
+<PageHeader
         title="Extracted Episode Angles"
-        subtitle="Key interview topics, guest slots, and discussion angles extracted by Podflow."
+        description="Key interview topics, guest slots, and discussion angles extracted by Podflow."
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <StatCard
-          title="Extracted Ideas"
+          label="Extracted Ideas"
           value="53 Ideas"
-          subtitle="Processed in latest digest run"
-          icon={<Lightbulb className="w-5 h-5 text-amber-400" />}
+          limit="Processed in latest digest run"
+          icon={Lightbulb}
+          iconClassName="text-amber-400"
         />
         <StatCard
-          title="Follow-Worthy Guests"
+          label="Follow-Worthy Guests"
           value="21 Guests"
-          subtitle="Flagged by AI extraction engine"
-          icon={<Sparkles className="w-5 h-5 text-purple-400" />}
+          limit="Flagged by AI extraction engine"
+          icon={Sparkles}
+          iconClassName="text-purple-400"
         />
         <StatCard
-          title="Average Cost / Run"
+          label="Average Cost / Run"
           value="$0.06"
-          subtitle="Anthropic / OpenAI API cost"
-          icon={<Tag className="w-5 h-5 text-emerald-400" />}
+          limit="Anthropic / OpenAI API cost"
+          icon={Tag}
+          iconClassName="text-emerald-400"
         />
       </div>
 

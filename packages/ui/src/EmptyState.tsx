@@ -1,30 +1,23 @@
 import React from 'react'
+import type { LucideIcon } from 'lucide-react'
 
-export interface EmptyStateProps {
-  icon?: React.ReactNode
-  title: string
-  description: string
+interface EmptyStateProps {
+  icon?: LucideIcon
+  title: React.ReactNode
+  description?: React.ReactNode
+  /** Optional call to action (a Button, link, etc.). */
   action?: React.ReactNode
   className?: string
 }
 
-export function EmptyState({
-  icon,
-  title,
-  description,
-  action,
-  className = '',
-}: EmptyStateProps) {
+/** Centred empty/placeholder state inside a card. */
+export function EmptyState({ icon: Icon, title, description, action, className = '' }: EmptyStateProps) {
   return (
-    <div className={`glass-card p-12 text-center rounded-2xl border border-white/10 ${className}`}>
-      {icon && (
-        <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 mx-auto mb-4">
-          {icon}
-        </div>
-      )}
-      <h3 className="text-lg font-bold text-white mb-2 font-heading">{title}</h3>
-      <p className="text-sm text-slate-400 max-w-sm mx-auto mb-6">{description}</p>
-      {action && <div className="flex justify-center">{action}</div>}
+    <div className={`text-center py-12 px-6 ${className}`}>
+      {Icon && <Icon className="w-14 h-14 text-slate-500 mx-auto mb-4" />}
+      <h3 className="text-lg font-semibold text-slate-100 mb-2">{title}</h3>
+      {description && <p className="text-slate-400 max-w-md mx-auto mb-6">{description}</p>}
+      {action}
     </div>
   )
 }

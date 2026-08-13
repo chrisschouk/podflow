@@ -19,7 +19,7 @@ interface MarketingNavProps {
 
 /**
  * Fixed marketing-site navigation with a mobile hamburger panel.
- * Uses max-w-6xl mx-auto container width.
+ * Desktop links use the .nav-link underline treatment from the preset.
  */
 export function MarketingNav({ logo, links, cta, className = '' }: MarketingNavProps) {
   const [open, setOpen] = useState(false)
@@ -28,13 +28,13 @@ export function MarketingNav({ logo, links, cta, className = '' }: MarketingNavP
     <nav
       className={`sticky top-0 inset-x-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-white/10 ${className}`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {logo}
 
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
-              <a key={link.href} href={link.href} className="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              <a key={link.href} href={link.href} className="nav-link text-sm font-medium">
                 {link.label}
               </a>
             ))}

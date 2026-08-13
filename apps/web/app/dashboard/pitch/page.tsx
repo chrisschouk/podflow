@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PageHeader, Card, Button } from '@totalaudiopromo/ui/app'
+import { PageHeader, Card, Button, SectionLabel } from '@totalaudiopromo/ui/app'
 import { Send, Sparkles, Copy, CheckCircle2, User, Radio, RefreshCw } from 'lucide-react'
 
 export default function PitchDrafterPage() {
@@ -30,10 +30,10 @@ Total Audio PR`
 
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
-      <PageHeader
-        badge="AI PITCH GENERATOR"
+      <SectionLabel>AI PITCH GENERATOR</SectionLabel>
+<PageHeader
         title="Pitch Drafter"
-        subtitle="Generate personalized, episode-specific guest pitches for podcast hosts."
+        description="Generate personalized, episode-specific guest pitches for podcast hosts."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

@@ -1,32 +1,22 @@
 import React from 'react'
 
-export interface PageHeaderProps {
-  title: string
-  subtitle?: string
-  action?: React.ReactNode
-  badge?: string
+interface PageHeaderProps {
+  title: React.ReactNode
+  description?: React.ReactNode
+  /** Optional right-aligned actions (buttons, links). */
+  actions?: React.ReactNode
   className?: string
 }
 
-export function PageHeader({
-  title,
-  subtitle,
-  action,
-  badge,
-  className = '',
-}: PageHeaderProps) {
+/** Standard dashboard page heading: title + optional description and actions. */
+export function PageHeader({ title, description, actions, className = '' }: PageHeaderProps) {
   return (
-    <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 ${className}`}>
+    <div className={`flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8 ${className}`}>
       <div>
-        {badge && (
-          <div className="inline-flex items-center gap-1.5 font-mono text-xs text-purple-300 bg-purple-500/10 border border-purple-500/30 px-2.5 py-0.5 rounded-full mb-2 uppercase font-semibold">
-            {badge}
-          </div>
-        )}
-        <h1 className="text-3xl font-extrabold text-white tracking-tight font-heading">{title}</h1>
-        {subtitle && <p className="text-sm text-slate-400 mt-1">{subtitle}</p>}
+        <h1 className="text-2xl font-bold text-slate-100">{title}</h1>
+        {description && <p className="text-slate-400 mt-1">{description}</p>}
       </div>
-      {action && <div className="shrink-0">{action}</div>}
+      {actions && <div className="flex items-center gap-3 shrink-0">{actions}</div>}
     </div>
   )
 }

@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { PageHeader, Card, Button } from '@totalaudiopromo/ui/app'
+import { PageHeader, Card, Button, SectionLabel } from '@totalaudiopromo/ui/app'
 import { Settings, Key, Cpu, Calendar, CheckCircle2, Save, Globe } from 'lucide-react'
 
 export default function SettingsPage() {
   const [provider, setProvider] = useState('openrouter')
-  const [model, setModel] = useState('anthropic/claude-3.5-haiku')
+  const [model, setModel] = useState('deepseek/deepseek-v4-flash')
   const [apiKey, setApiKey] = useState('sk-or-v1-****************')
   const [scheduleTime, setScheduleTime] = useState('08:00')
   const [saved, setSaved] = useState(false)
@@ -14,7 +14,7 @@ export default function SettingsPage() {
   const handleProviderChange = (newProvider: string) => {
     setProvider(newProvider)
     if (newProvider === 'openrouter') {
-      setModel('anthropic/claude-3.5-haiku')
+      setModel('deepseek/deepseek-v4-flash')
     } else if (newProvider === 'anthropic') {
       setModel('claude-haiku-4-5-20251001')
     } else if (newProvider === 'openai') {
@@ -33,10 +33,10 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
-      <PageHeader
-        badge="CONFIG & PROVIDERS"
+      <SectionLabel>CONFIG & PROVIDERS</SectionLabel>
+<PageHeader
         title="Settings & AI Providers"
-        subtitle="Manage your local ~/.podflow/config.json and AI extraction provider settings."
+        description="Manage your local ~/.podflow/config.json and AI extraction provider settings."
       />
 
       <Card className="space-y-6">

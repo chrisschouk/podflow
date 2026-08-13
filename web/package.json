@@ -7,10 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prebuild": "pnpm --filter @totalaudiopromo/ui build"
   },
   "dependencies": {
-    "@totalaudiopromo/ui": "file:../../newsjack/packages/ui",
+    "@totalaudiopromo/ui": "workspace:*",
     "lucide-react": "^0.469.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

@@ -83,7 +83,7 @@ function getModel(config: PodflowConfig) {
         baseURL: 'https://openrouter.ai/api/v1',
         apiKey: config.apiKey || process.env.OPENROUTER_API_KEY,
       });
-      return openrouter(config.model || 'anthropic/claude-3.5-haiku');
+      return openrouter(config.model || 'deepseek/deepseek-v4-flash');
     }
     default:
       throw new Error(`Unknown provider: ${config.provider}. Use: anthropic, openai, google, ollama, openrouter`);

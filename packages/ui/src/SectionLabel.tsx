@@ -1,14 +1,21 @@
 import React from 'react'
 
-export interface SectionLabelProps {
+interface SectionLabelProps {
   children: React.ReactNode
+  /** Brand-tinted rather than muted grey. */
+  accent?: boolean
   className?: string
 }
 
-export function SectionLabel({ children, className = '' }: SectionLabelProps) {
+/** Small uppercase tracked label used above sections and inside cards. */
+export function SectionLabel({ children, accent = false, className = '' }: SectionLabelProps) {
   return (
-    <div className={`text-[10px] font-mono font-bold tracking-widest text-purple-400 uppercase mb-3 ${className}`}>
+    <span
+      className={`text-xs font-semibold uppercase tracking-wider ${
+        accent ? 'text-brand-400' : 'text-slate-400'
+      } ${className}`}
+    >
       {children}
-    </div>
+    </span>
   )
 }
