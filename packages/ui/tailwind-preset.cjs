@@ -25,14 +25,16 @@ module.exports = {
       },
       colors: {
         brand: brandScale,
-        'podflow-purple': '#A855F7',
-        'tap-accent': '#C084FC',
+        'newsjack-blue': '#3B82F6',
+        'tap-accent': '#00F59B',
         obsidian: '#060709',
       },
       boxShadow: {
-        glow: '0 0 20px rgb(var(--brand-500) / 0.3)',
-        'glow-lg': '0 0 36px rgb(var(--brand-500) / 0.38)',
-        'glow-xl': '0 0 52px rgb(var(--brand-500) / 0.28)',
+        // Restrained: grounded drop shadows over neon halos. Kept subtle so the
+        // UI reads as a tool, not a landing-page demo.
+        glow: '0 0 20px rgb(var(--brand-500) / 0.22)',
+        'glow-lg': '0 0 36px rgb(var(--brand-500) / 0.28)',
+        'glow-xl': '0 0 52px rgb(var(--brand-500) / 0.2)',
         'glow-white': '0 0 24px rgba(255, 255, 255, 0.08)',
         card: '0 4px 24px rgba(0, 0, 0, 0.3)',
         'card-hover': '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
@@ -82,6 +84,13 @@ module.exports = {
         return `linear-gradient(to right, rgb(var(--brand-gradient-from${suffix})), rgb(var(--brand-gradient-via${suffix})), rgb(var(--brand-gradient-to${suffix})))`
       }
 
+      // The house animations below are applied via raw `animation:` strings in
+      // addComponents/addUtilities (e.g. .glow-blob, .btn-gradient, the scroll
+      // reveal). Tailwind only emits a `@keyframes` block when a matching
+      // `animate-*` utility is found in scanned content, so declaring these in
+      // theme.extend.keyframes alone gets them tree-shaken out of the build —
+      // which silently broke the scroll reveal (content stuck at opacity:0).
+      // Emit them here so they always ship, independent of utility usage.
       addBase({
         'h1, h2, h3, h4, h5, h6, .font-heading': {
           fontFamily: "var(--font-space-grotesk), 'Space Grotesk', -apple-system, sans-serif",
@@ -126,12 +135,12 @@ module.exports = {
           color: '#ffffff',
           borderRadius: '0.75rem',
           backgroundImage: gradient(),
-          boxShadow: '0 4px 14px 0 rgba(168, 85, 247, 0.4)',
+          boxShadow: '0 4px 14px 0 rgba(239, 68, 68, 0.35)',
           transitionProperty: 'transform, box-shadow, filter',
           transitionDuration: '200ms',
           transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           '&:hover': {
-            boxShadow: '0 6px 20px 0 rgba(168, 85, 247, 0.55)',
+            boxShadow: '0 6px 20px 0 rgba(239, 68, 68, 0.45)',
             filter: 'brightness(1.08)',
             transform: 'translateY(-2px)',
           },
@@ -209,7 +218,9 @@ module.exports = {
         '.glow-blob': {
           position: 'absolute',
           filter: 'blur(72px)',
-          opacity: '0.12',
+          // Toned right down: a faint ambient tint rather than a morphing,
+          // floating lava lamp. Still there for warmth, no longer the hero.
+          opacity: '0.1',
           backgroundImage:
             'linear-gradient(to right, rgb(var(--brand-gradient-from)), rgb(var(--brand-gradient-via)))',
           animation: 'blobMorph 22s ease-in-out infinite',
@@ -249,6 +260,7 @@ module.exports = {
             'radial-gradient(at 40% 20%, rgb(var(--brand-500) / 0.15) 0px, transparent 50%), radial-gradient(at 80% 0%, rgb(var(--brand-gradient-via) / 0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, rgb(var(--brand-500) / 0.1) 0px, transparent 50%), radial-gradient(at 80% 50%, rgb(var(--brand-gradient-via) / 0.08) 0px, transparent 50%), radial-gradient(at 0% 100%, rgb(var(--brand-500) / 0.1) 0px, transparent 50%)',
         },
 
+        /* Scroll-entrance animation hooks (paired with AnimatedSection) */
         '.animate-slide-in': { opacity: '0' },
         '.animate-slide-in.in-view': {
           animation: 'slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',

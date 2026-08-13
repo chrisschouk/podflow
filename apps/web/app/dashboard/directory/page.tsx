@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PageHeader, Card, StatCard, Button, EmptyState } from '@totalaudiopromo/ui/app'
+import { PageHeader, Card, StatCard, Button, EmptyState, SectionLabel } from '@totalaudiopromo/ui/app'
 import { Radio, Search, Filter, Headphones, ExternalLink, Sparkles, CheckCircle2 } from 'lucide-react'
 
 // Real podcast directory extracted from Podflow engine runs
@@ -95,30 +95,33 @@ export default function DirectoryPage() {
 
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
-      <PageHeader
-        badge="REAL PODCAST INDEX"
+      <SectionLabel>REAL PODCAST INDEX</SectionLabel>
+<PageHeader
         title="Podcast Directory"
-        subtitle="Active Apple Podcasts & RSS feeds monitored by the Podflow engine."
+        description="Active Apple Podcasts & RSS feeds monitored by the Podflow engine."
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <StatCard
-          title="Indexed Podcasts"
+          label="Indexed Podcasts"
           value="1,420"
-          subtitle="From local Apple Podcasts DB & RSS"
-          icon={<Radio className="w-5 h-5 text-purple-400" />}
+          limit="From local Apple Podcasts DB & RSS"
+          icon={Radio}
+          iconClassName="text-purple-400"
         />
         <StatCard
-          title="Monitored Tiers"
+          label="Monitored Tiers"
           value="Tiers 1 - 3"
-          subtitle="Configured in ~/.podflow/podcasts.json"
-          icon={<Sparkles className="w-5 h-5 text-amber-400" />}
+          limit="Configured in ~/.podflow/podcasts.json"
+          icon={Sparkles}
+          iconClassName="text-amber-400"
         />
         <StatCard
-          title="Total Guests Tracked"
+          label="Total Guests Tracked"
           value="21 Guests"
-          subtitle="Processed in latest run"
-          icon={<Headphones className="w-5 h-5 text-emerald-400" />}
+          limit="Processed in latest run"
+          icon={Headphones}
+          iconClassName="text-emerald-400"
         />
       </div>
 

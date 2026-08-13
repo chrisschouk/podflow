@@ -38,8 +38,8 @@ const DEFAULT_CONFIG: PodflowConfig = {
   about: 'A professional building software products.',
   interests: DEFAULT_INTERESTS,
   podcasts: DEFAULT_PODCASTS,
-  provider: 'anthropic',
-  model: 'claude-haiku-4-5-20251001',
+  provider: 'openrouter',
+  model: 'deepseek/deepseek-v4-flash',
   outputPath: './podflow-digest.md',
   feeds: [],
 };

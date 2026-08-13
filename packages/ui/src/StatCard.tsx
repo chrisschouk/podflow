@@ -1,47 +1,41 @@
 import React from 'react'
+import type { LucideIcon } from 'lucide-react'
+import { Card } from './Card'
 
-export interface StatCardProps {
-  title: string
-  value: string | number
-  change?: string
-  trend?: 'up' | 'down' | 'neutral'
-  subtitle?: string
-  icon?: React.ReactNode
+interface StatCardProps {
+  icon: LucideIcon
+  label: React.ReactNode
+  value: React.ReactNode
+  /** Optional "/limit" suffix, e.g. usage out of a cap. */
+  limit?: React.ReactNode
+  /** Tailwind background class for the icon chip, e.g. "bg-brand-500/20". */
+  iconClassName?: string
   className?: string
 }
 
+/** A single metric tile: icon chip + label + value. */
 export function StatCard({
-  title,
+  icon: Icon,
+  label,
   value,
-  change,
-  trend = 'neutral',
-  subtitle,
-  icon,
+  limit,
+  iconClassName = 'bg-brand-500/20 text-brand-400',
   className = '',
 }: StatCardProps) {
   return (
-    <div className={`glass-card p-5 rounded-2xl bg-white/5 border border-white/10 ${className}`}>
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-xs font-medium text-slate-400 font-sans uppercase tracking-wider">{title}</span>
-        {icon && <div className="text-purple-400 p-2 rounded-xl bg-purple-500/10 border border-purple-500/20">{icon}</div>}
+    <Card className={className}>
+      <div className="flex items-center gap-4">
+        <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${iconClassName}`}>
+          <Icon className="w-6 h-6" />
+        </div>
+        <div>
+          <p className="text-sm text-slate-400">{label}</p>
+          <p className="text-2xl font-bold text-slate-100">
+            {value}
+            {limit != null && <span className="text-sm font-normal text-slate-500">/{limit}</span>}
+          </p>
+        </div>
       </div>
-      <div className="flex items-baseline justify-between gap-2">
-        <div className="font-mono text-2xl font-bold text-white tracking-tight">{value}</div>
-        {change && (
-          <span
-            className={`font-mono text-xs px-2 py-0.5 rounded-full border ${
-              trend === 'up'
-                ? 'bg-purple-500/20 text-purple-300 border-purple-500/30'
-                : trend === 'down'
-                ? 'bg-rose-500/20 text-rose-400 border-rose-500/30'
-                : 'bg-slate-500/20 text-slate-400 border-slate-500/30'
-            }`}
-          >
-            {change}
-          </span>
-        )}
-      </div>
-      {subtitle && <p className="text-xs text-slate-500 mt-2">{subtitle}</p>}
-    </div>
+    </Card>
   )
 }

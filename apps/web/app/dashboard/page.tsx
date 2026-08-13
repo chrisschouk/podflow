@@ -6,8 +6,7 @@ import {
   Card,
   StatCard,
   ActionTile,
-  EmptyState
-} from '@totalaudiopromo/ui/app'
+  EmptyState, SectionLabel } from '@totalaudiopromo/ui/app'
 import {
   Radio,
   Sparkles,
@@ -99,11 +98,11 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
       {/* Header */}
-      <PageHeader
-        badge="PODCAST INTELLIGENCE & GUEST PITCHING"
+      <SectionLabel>PODCAST INTELLIGENCE & GUEST PITCHING</SectionLabel>
+<PageHeader
         title="Podcast Opportunities"
-        subtitle="Real-time episode monitoring, match scores, and automated guest pitching for your roster."
-        action={
+        description="Real-time episode monitoring, match scores, and automated guest pitching for your roster."
+        actions={
           <button className="btn-gradient py-2.5 px-5 rounded-xl font-bold text-xs flex items-center gap-2 text-white shadow-glow">
             <Plus className="w-4 h-4" />
             Scan New Podcasts
@@ -114,36 +113,32 @@ export default function DashboardPage() {
       {/* Stat Metrics Grid with Distinct Multi-Color Accents */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          title="Monitored Podcasts"
+          label="Monitored Podcasts"
           value="1,420"
-          change="+12 this week"
-          trend="up"
-          subtitle="Active RSS feeds & Spotify charts"
-          icon={<Radio className="w-5 h-5 text-purple-400" />}
+          limit="Active RSS feeds & Spotify charts · +12 this week"
+          icon={Radio}
+          iconClassName="text-purple-400"
         />
         <StatCard
-          title="Host Match Rate"
+          label="Host Match Rate"
           value="92.4%"
-          change="+4.1%"
-          trend="up"
-          subtitle="Relevance match across active roster"
-          icon={<Sparkles className="w-5 h-5 text-emerald-400" />}
+          limit="Relevance match across active roster · +4.1%"
+          icon={Sparkles}
+          iconClassName="text-emerald-400"
         />
         <StatCard
-          title="Pitches Sent"
+          label="Pitches Sent"
           value="48"
-          change="+8 today"
-          trend="up"
-          subtitle="Outreach to verified hosts"
-          icon={<Send className="w-5 h-5 text-cyan-400" />}
+          limit="Outreach to verified hosts · +8 today"
+          icon={Send}
+          iconClassName="text-cyan-400"
         />
         <StatCard
-          title="Host Responses"
+          label="Host Responses"
           value="19"
-          change="39.5% rate"
-          trend="up"
-          subtitle="Confirmed interview bookings"
-          icon={<Users className="w-5 h-5 text-amber-400" />}
+          limit="Confirmed interview bookings · 39.5% rate"
+          icon={Users}
+          iconClassName="text-amber-400"
         />
       </div>
 
@@ -151,21 +146,18 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ActionTile
           title="Scan New Episodes"
-          description="Run real-time NLP analysis on latest podcast drops in your genre."
-          icon={<Radio className="w-5 h-5" />}
-          badge="AUTOMATED"
+          subtitle="Run real-time NLP analysis on latest podcast drops in your genre."
+          icon={Radio}
         />
         <ActionTile
           title="Draft Roster Pitch"
-          description="Generate personalized guest pitch emails referencing host episode angles."
-          icon={<Sparkles className="w-5 h-5" />}
-          badge="AI GENERATED"
+          subtitle="Generate personalized guest pitch emails referencing host episode angles."
+          icon={Sparkles}
         />
         <ActionTile
           title="Export Weekly Digest"
-          description="Download PDF/Markdown digest of top podcast opportunities for your team."
-          icon={<FileText className="w-5 h-5" />}
-          badge="EXPORT"
+          subtitle="Download PDF/Markdown digest of top podcast opportunities for your team."
+          icon={FileText}
         />
       </div>
 
@@ -235,7 +227,7 @@ export default function DashboardPage() {
         {/* Opportunity List */}
         {filteredOpportunities.length === 0 ? (
           <EmptyState
-            icon={<Radio className="w-6 h-6" />}
+            icon={Radio}
             title="No podcast opportunities found"
             description="Try adjusting your search query or filter to see more podcast host matches."
           />

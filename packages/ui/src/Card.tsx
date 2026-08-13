@@ -1,20 +1,30 @@
 import React from 'react'
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode
-  className?: string
-  glass?: boolean
+type Padding = 'none' | 'sm' | 'md' | 'lg'
+
+const paddingClass: Record<Padding, string> = {
+  none: '',
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
 }
 
-export function Card({ children, className = '', glass = true, ...props }: CardProps) {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  padding?: Padding
+  /** Adds a subtle brand-tinted left border for "featured" cards. */
+  accent?: boolean
+}
+
+/**
+ * The house surface for app content — frosted card, consistent radius and
+ * border. Wraps the themeable `glass-card` utility so newsjack, spotcheck and
+ * podflow share one card look and pick up their accent from `data-theme`.
+ */
+export function Card({ padding = 'md', accent = false, className = '', children, ...rest }: CardProps) {
   return (
     <div
-      className={`${
-        glass
-          ? 'glass-card border border-white/10 rounded-2xl p-6 bg-slate-900/60 backdrop-blur-xl'
-          : 'bg-slate-900 border border-white/10 rounded-2xl p-6'
-      } ${className}`}
-      {...props}
+      className={`glass-card ${paddingClass[padding]} ${accent ? 'border-brand-500/30' : ''} ${className}`}
+      {...rest}
     >
       {children}
     </div>
