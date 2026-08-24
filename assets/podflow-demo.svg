@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="'JetBrains Mono','SF Mono','Fira Code',monospace">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#1a1530"/>
+      <stop offset="100%" stop-color="#0a0815"/>
+    </radialGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="60%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="780" height="420" rx="14" fill="#0a0815"/>
+  <rect x="10" y="10" width="780" height="420" rx="14" fill="url(#bg)"/>
+  <rect x="10" y="10" width="780" height="44" rx="14" fill="#141024"/>
+  <rect x="10" y="32" width="780" height="22" fill="#141024"/>
+
+  <circle cx="34" cy="32" r="6" fill="#ff5f57"/>
+  <circle cx="52" cy="32" r="6" fill="#febc2e"/>
+  <circle cx="70" cy="32" r="6" fill="#28c840"/>
+  <text x="400" y="36" text-anchor="middle" font-size="12" fill="#5b546d">podflow — 96×24</text>
+
+  <rect x="10" y="54" width="780" height="2" fill="url(#bar)" opacity="0.5"/>
+
+  <!-- ROW 1 -->
+  <text x="30" y="86" font-size="13" fill="#A855F7" font-weight="bold">$</text>
+  <text x="46" y="86" font-size="13" fill="#e8e6ee">npm install -g podflow</text>
+  <text x="30" y="106" font-size="11" fill="#7b7485">added 18 packages in 3s</text>
+
+  <!-- ROW 2 -->
+  <text x="30" y="136" font-size="13" fill="#A855F7" font-weight="bold">$</text>
+  <text x="46" y="136" font-size="13" fill="#e8e6ee">podflow init</text>
+  <text x="30" y="158" font-size="12" fill="#e8a04a">  Provider</text>
+  <text x="150" y="158" font-size="12" fill="#7b7485">anthropic (default), openai, google, ollama</text>
+  <text x="30" y="178" font-size="12" fill="#e8a04a">  API key</text>
+  <text x="150" y="178" font-size="12" fill="#7b7485">sk-ant-••••••••••••</text>
+  <text x="30" y="198" font-size="12" fill="#e8a04a">  Interests</text>
+  <text x="150" y="198" font-size="12" fill="#7b7485">Customer Acquisition, AI & Agents, Music Tech</text>
+  <text x="30" y="218" font-size="12" fill="#28c840">✓</text>
+  <text x="42" y="218" font-size="12" fill="#e8e6ee"> Config created at ~/.podflow/config.json</text>
+
+  <!-- ROW 3 -->
+  <text x="30" y="252" font-size="13" fill="#A855F7" font-weight="bold">$</text>
+  <text x="46" y="252" font-size="13" fill="#e8e6ee">podflow digest --dry-run</text>
+
+  <text x="30" y="276" font-size="12" fill="#e8a04a">  Podcasts scanned</text>
+  <text x="150" y="276" font-size="12" fill="#e8e6ee">12</text>
+  <text x="30" y="296" font-size="12" fill="#e8a04a">  New episodes</text>
+  <text x="150" y="296" font-size="12" fill="#e8e6ee">23</text>
+  <text x="30" y="316" font-size="12" fill="#e8a04a">  Estimated cost</text>
+  <text x="150" y="316" font-size="12" fill="#e8e6ee">~$0.04 (Haiku)</text>
+  <text x="30" y="336" font-size="12" fill="#e8a04a">  Est. runtime</text>
+  <text x="150" y="336" font-size="12" fill="#e8e6ee">~8s</text>
+
+  <!-- ROW 4 -->
+  <text x="30" y="370" font-size="13" fill="#A855F7" font-weight="bold">$</text>
+  <text x="46" y="370" font-size="13" fill="#e8e6ee">podflow digest</text>
+  <text x="30" y="394" font-size="12" fill="#28c840">✓</text>
+  <text x="42" y="394" font-size="12" fill="#e8e6ee"> Digest written to ./podflow-digest.md (8 guests, 14 ideas)</text>
+
+  <!-- Cursor -->
+  <text x="30" y="420" font-size="13" fill="#A855F7" font-weight="bold">$</text>
+  <rect x="46" y="404" width="8" height="18" fill="#A855F7" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0;0.7" dur="1.1s" repeatCount="indefinite"/>
+  </rect>
+</svg>

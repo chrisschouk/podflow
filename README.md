@@ -107,6 +107,12 @@ Intelligence is episode-level (descriptions plus Apple transcript snippets where
 available). Uses your existing `~/.podflow` config and provider key; `ingest_feed`
 costs pennies per episode, same as `digest`.
 
+<p align="center">
+  <img src="assets/podflow-demo.svg" alt="podflow terminal demo" width="90%">
+</p>
+
+---
+
 ## Why podflow?
 
 - **Local-first & Hosted.** Reads Apple Podcasts SQLite database locally or runs via the hosted Podflow Web UI.
