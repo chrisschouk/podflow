@@ -56,6 +56,8 @@ podflow digest
 | `podflow digest --backfill` | Process all episodes |
 | `podflow subs` | List podcast subscriptions |
 | `podflow stats` | Cache statistics |
+| `podflow import <path>` | Import podcast RSS feeds from an OPML file |
+| `podflow ui` | Start the interactive local dashboard (default port 3010) |
 | `podflow schedule` | Weekly automatic digests + notification (macOS) |
 | `podflow mcp` | Start the MCP server (stdio) — ears for agents |
 
@@ -116,7 +118,7 @@ costs pennies per episode, same as `digest`.
 ## Why podflow?
 
 - **Local-first & Hosted.** Reads Apple Podcasts SQLite database locally or runs via the hosted Podflow Web UI.
-- **Your AI key, your choice.** Supports Anthropic, OpenAI, Google, and Ollama (local, free).
+- **Your AI key, your choice.** Supports OpenRouter (default), Anthropic, OpenAI, Google, and Ollama (local, free).
 - **Incremental.** Only processes new episodes. Run it weekly, costs pennies.
 - **Configurable interests.** Scores everything against what matters to *you*.
 
@@ -148,8 +150,8 @@ After `podflow init`, edit `~/.podflow/config.json`:
       "why": "Building AI-powered features"
     }
   ],
-  "provider": "anthropic",
-  "model": "claude-haiku-4-5-20251001",
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-v4-flash",
   "outputPath": "./podflow-digest.md"
 }
 ```
@@ -178,10 +180,11 @@ Tiers 1-3 are processed by default. Tier 4 is skipped (use `--include-all` to ov
 --max-episodes <n>      Limit episodes (default: 50)
 --tier <n>              Only process specific tier (1-4)
 --include-all           Include tier 4
---provider <name>       anthropic, openai, google, ollama
+--provider <name>       openrouter, anthropic, openai, google, ollama
 --model <name>          Override model name
 --output <path>         Output file path
 --recent <days>         Days of history (default: 365)
+--rss <url>             Process a specific RSS feed URL
 --verbose               Show episode details
 -q, --quiet             Suppress output except errors
 ```
@@ -190,6 +193,7 @@ Tiers 1-3 are processed by default. Tier 4 is skipped (use `--include-all` to ov
 
 | Provider | Env Var | Cost / 1,000 eps | Best For |
 | -------- | ------- | ----------------- | -------- |
+| OpenRouter (DeepSeek Flash) | `OPENROUTER_API_KEY` | ~$2 | Default; one key, many models |
 | Anthropic (Haiku) | `ANTHROPIC_API_KEY` | ~$2 | Best quality/cost ratio |
 | OpenAI (GPT-4o-mini) | `OPENAI_API_KEY` | ~$0.50 | Cheapest cloud option |
 | Google (Gemini Flash) | `GOOGLE_GENERATIVE_AI_API_KEY` | ~$0.25 | Budget option |
