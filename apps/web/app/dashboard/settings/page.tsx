@@ -6,7 +6,7 @@ import { Settings, Key, Cpu, Calendar, CheckCircle2, Save, Globe } from 'lucide-
 
 export default function SettingsPage() {
   const [provider, setProvider] = useState('openrouter')
-  const [model, setModel] = useState('deepseek/deepseek-v4-flash')
+  const [model, setModel] = useState('deepseek/deepseek-v4.1-flash')
   const [apiKey, setApiKey] = useState('sk-or-v1-****************')
   const [scheduleTime, setScheduleTime] = useState('08:00')
   const [saved, setSaved] = useState(false)
@@ -14,7 +14,7 @@ export default function SettingsPage() {
   const handleProviderChange = (newProvider: string) => {
     setProvider(newProvider)
     if (newProvider === 'openrouter') {
-      setModel('deepseek/deepseek-v4-flash')
+      setModel('deepseek/deepseek-v4.1-flash')
     } else if (newProvider === 'anthropic') {
       setModel('claude-haiku-4-5-20251001')
     } else if (newProvider === 'openai') {
