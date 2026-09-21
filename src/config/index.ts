@@ -39,7 +39,7 @@ const DEFAULT_CONFIG: PodflowConfig = {
   interests: DEFAULT_INTERESTS,
   podcasts: DEFAULT_PODCASTS,
   provider: 'openrouter',
-  model: 'deepseek/deepseek-v4-flash',
+  model: 'deepseek/deepseek-v4.1-flash',
   outputPath: './podflow-digest.md',
   feeds: [],
 };

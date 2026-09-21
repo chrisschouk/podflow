@@ -151,7 +151,7 @@ After `podflow init`, edit `~/.podflow/config.json`:
     }
   ],
   "provider": "openrouter",
-  "model": "deepseek/deepseek-v4-flash",
+  "model": "deepseek/deepseek-v4.1-flash",
   "outputPath": "./podflow-digest.md"
 }
 ```
