@@ -8,9 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org)
 
-**Your podcast intelligence and guest pitching tool for music PR.** Extract guests, episode angles, host matches, and insights from Apple Podcasts and Spotify RSS feeds.
-
-Part of the **Total Audio Promo** suite (`totalaudiopromo.com`).
+**Podcast digests and guest research for music PR.** podflow reads your Apple Podcasts library and RSS feeds, then pulls out guests, episode angles, host matches and ideas worth keeping.
 
 ---
 
@@ -59,12 +57,11 @@ podflow digest
 | `podflow import <path>` | Import podcast RSS feeds from an OPML file |
 | `podflow ui` | Start the interactive local dashboard (default port 3010) |
 | `podflow schedule` | Weekly automatic digests + notification (macOS) |
-| `podflow mcp` | Start the MCP server (stdio) — ears for agents |
+| `podflow mcp` | Start the MCP server (stdio) for agents |
 
-## Set it and forget it
+## Scheduled digests
 
-`podflow init` now walks you through setup interactively (provider, key, interests) —
-no JSON editing. Then:
+`podflow init` walks you through setup (provider, key, interests), so there is no JSON to edit. Then:
 
 ```bash
 podflow schedule            # weekly, Mondays 08:00
@@ -81,7 +78,7 @@ environment variables.
 ## Agents can use it too (MCP)
 
 podflow ships an [MCP](https://modelcontextprotocol.io) server, so AI agents can query
-your podcast intelligence directly — what was said, by whom, and why it matters.
+your podcast notes directly: what was said, by whom, and why it matters.
 
 ```json
 {
@@ -117,7 +114,7 @@ costs pennies per episode, same as `digest`.
 
 ## Why podflow?
 
-- **Local-first & Hosted.** Reads Apple Podcasts SQLite database locally or runs via the hosted Podflow Web UI.
+- **Local first.** Reads the Apple Podcasts database on your Mac, with an optional web dashboard.
 - **Your AI key, your choice.** Supports OpenRouter (default), Anthropic, OpenAI, Google, and Ollama (local, free).
 - **Incremental.** Only processes new episodes. Run it weekly, costs pennies.
 - **Configurable interests.** Scores everything against what matters to *you*.
@@ -208,11 +205,11 @@ podflow digest --provider ollama --model llama3.2
 
 Generates a markdown digest with:
 
-- **People to Follow** -- guests flagged as worth following, with roles, companies, and social links
-- **Ideas by Topic** -- actionable insights grouped by your configured interest areas
-- **High Relevance** -- episodes scored 7+ for relevance to your work
-- **Recent Insights** -- last 30 days of extracted intelligence
-- **Guest Index** -- every guest across all episodes, cross-referenced
+- **People to Follow**: guests flagged as worth following, with roles, companies, and social links
+- **Ideas by Topic**: insights grouped by your configured interest areas
+- **High Relevance**: episodes scored 7+ for relevance to your work
+- **Recent Insights**: last 30 days of extracted intelligence
+- **Guest Index**: every guest across all episodes, cross-referenced
 
 ## Cost
 
@@ -236,20 +233,20 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for dev setup and guidelines.
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
 
-## Part of Total Audio
+## More from me
 
-Tools I build for music PR, by [Chris Schofield](https://x.com/chrisschouk). Part of [Total Audio Promo](https://totalaudiopromo.com).
+I'm [Chris Schofield](https://github.com/chrisschouk). I work in music PR and radio plugging in Brighton, and I build the tools I need for it.
 
-| Project | Description |
-|---------|-------------|
-| [TAP](https://totalaudiopromo.com) | Campaign management for music PR agencies |
-| [totalaud.io](https://totalaud.io) | Release planning for emerging artists |
-| [SpotCheck](https://spotcheck.cc) | Spotify playlist validation |
-| [Newsjack](https://newsjack.cc) | Music industry newsjacking |
-| [Podflow](https://github.com/totalaudiopromo/podflow) | Podcast intelligence for music PR |
-| [Sink](https://github.com/totalaudiopromo/sink-cli) | Contact data hygiene CLI |
+| Project | What it does |
+| --- | --- |
+| [Total Audio Promo](https://totalaudiopromo.com) | Release platform for independent artists |
+| [SpotCheck](https://spotcheck.cc) | Bot risk scores for Spotify playlists |
+| [NewsJack](https://newsjack.cc) | Music industry news, scored and drafted into posts |
+| [datasink](https://github.com/chrisschouk/sink-cli) | Contact list hygiene for music PR |
+| [podflow](https://github.com/chrisschouk/podflow) | Podcast digests and guest research |
+| [audx](https://github.com/chrisschouk/audx) | Terminal DAW with Ableton export |
 
-Questions? Reach me on [X/@chrisschouk](https://x.com/chrisschouk) or [info@totalaudiopromo.com](mailto:info@totalaudiopromo.com).
+Questions or bugs: open an issue, or find me on [X](https://x.com/chrisschouk).
 
 ## Licence
 
